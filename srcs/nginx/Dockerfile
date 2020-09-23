@@ -1,13 +1,31 @@
-FROM alpine
+FROM alpine:latest
 
-MAINTAINER rde-vrie
+RUN apk update && \ 
+	apk add nginx && \
+	apk add openssl && \
+	apk add vim
 
-RUN apt-get update && apt-get install -y \
-	nginx
+RUN mkdir /var/run/nginx
 
-#COPY ./nginx/html /usr/share/nginx/html
+#create new user
+RUN adduser -D -g 'www' www
+#create a directory
+RUN mkdir /www && \
+	chown -R www:www /var/lib/nginx && \
+	chown -R www:www /www
+
+#Open ports
+EXPOSE 80 443
+
+RUN openssl req -x509 -nodes -days 365 -subj \
+	"/C=NL/ST=Noord-Holland/O=Codam/CN=localhost.com" -newkey rsa:2048 -keyout \
+	/etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt;
+
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY index.html /www/index.html
 # de mappen heten vast anders
 
+CMD ["nginx", "-g", "daemon off;"]
 
 #Place this file in the same directory as your directory of content ("static-html-directory"), run docker build -t some-content-nginx ., then start your container:
 #$ docker run --name some-nginx -d some-content-nginx
