@@ -15,3 +15,6 @@ eval $(minikube docker-env)
 docker build -t mynginx ./srcs/nginx/
 # deployment nginx
 kubectl apply -f srcs/nginx/nginx.yaml
+
+# ftps on port 21
+kubectl apply -f srcs/ftps/ftps-alpine.yaml
