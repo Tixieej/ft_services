@@ -43,7 +43,7 @@ apiVersion: v1
         spec:
           containers:
           - name: ftps-alpine
-            image: test_alpine
+            image: my_ftps
             imagePullPolicy: Never
             ports:
             - containerPort: 21

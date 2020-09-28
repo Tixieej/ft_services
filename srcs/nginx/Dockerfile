@@ -7,14 +7,14 @@ RUN apk update && \
 
 RUN mkdir /var/run/nginx
 
-#create new user
+# Create new user
 RUN adduser -D -g 'www' www
-#create a directory
+# Create a directory
 RUN mkdir /www && \
 	chown -R www:www /var/lib/nginx && \
 	chown -R www:www /www
 
-#Open ports
+# Open ports
 EXPOSE 80 443
 
 RUN openssl req -x509 -nodes -days 365 -subj \
@@ -23,7 +23,6 @@ RUN openssl req -x509 -nodes -days 365 -subj \
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY index.html /www/index.html
-# de mappen heten vast anders
 
 CMD ["nginx", "-g", "daemon off;"]
 

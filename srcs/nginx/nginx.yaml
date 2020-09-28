@@ -23,7 +23,6 @@ spec:
           name: http
         - containerPort: 443
           name: https
-
 ---
 apiVersion: v1
 kind: Service
