@@ -20,7 +20,17 @@ docker build -t my_ftps ./srcs/ftps/
 # deployment ftps
 kubectl apply -f srcs/ftps/ftps.yaml
 
+# make mysql image
+docker build -t my_mysql ./srcs/mysql/
+# deployment mysql
+kubectl apply -f srcs/mysql/mysql.yaml
+
+# make phpmyadmin image
+docker build -t my_phpmyadmin ./srcs/php/
+# deployment phpmyadmin
+kubectl apply -f srcs/php/php.yaml
+
 # make wordpress image
-docker build -t my_wp ./srcs/wordpress/
+#docker build -t my_wp ./srcs/wordpress/
 # deployment wordpress
-kubectl apply -f srcs/wordpress/wp.yaml
+#kubectl apply -f srcs/wordpress/wp.yaml
