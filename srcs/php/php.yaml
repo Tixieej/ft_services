@@ -24,6 +24,7 @@ spec:
         ports:
         - containerPort: 5000
           name: phpmyadmin
+          protocol: TCP
 ---
 apiVersion: v1
 kind: Service

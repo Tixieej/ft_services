@@ -9,6 +9,8 @@ spec:
   selector:
     matchLabels:
       app: mysql
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
@@ -39,9 +41,12 @@ metadata:
 spec:
   ports:
   - port: 3306
+    name: mysql
+    protocol: TCP
+    targetPort: 3306
   selector:
     app: mysql
-    type: ClusterIP
+  type: ClusterIP
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

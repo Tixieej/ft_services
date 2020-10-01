@@ -31,6 +31,6 @@ docker build -t my_phpmyadmin ./srcs/php/
 kubectl apply -f srcs/php/php.yaml
 
 # make wordpress image
-#docker build -t my_wp ./srcs/wordpress/
+docker build -t my_wp ./srcs/wordpress/
 # deployment wordpress
-#kubectl apply -f srcs/wordpress/wp.yaml
+kubectl apply -f srcs/wordpress/wp.yaml

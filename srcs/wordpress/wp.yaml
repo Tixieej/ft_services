@@ -1,36 +1,37 @@
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-    name: wordpress
-    labels:
-        app: wordpress
+  name: wordpress
+  labels:
+    app: wordpress
 spec:
-    replicas: 1
-    selector:
-        matchLabels:
-            app: wordpress
-    template:
-        metadata:
-            labels:
-                app: wordpress
-        spec:
-            containers:
-            - name: wordpress
-              image: my_wp
-              ports:
-              - containerPort: 5050
-                name: wp
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      containers:
+      - name: wordpress
+        image: my_wp
+        imagePullPolicyt: Never
+        ports:
+        - containerPort: 5050
+          name: wp
 ---
 apiVersion: v1
 kind: Service
 metadata:
-    name: wordpress
+  name: wordpress
 spec:
-    ports:
-        - name: wp
-          port: 5050
-          protocol: TCP
-          targetPort: 5050
-    selector:
-        app: wordpress
-    type: LoadBalancer
+  ports:
+  - name: wp
+    port: 5050
+    protocol: TCP
+    targetPort: 5050
+  selector:
+    app: wordpress
+  type: LoadBalancer

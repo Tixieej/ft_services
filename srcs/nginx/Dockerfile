@@ -1,9 +1,9 @@
 FROM alpine:latest
 
 RUN apk update && \ 
-	apk add nginx && \
-	apk add openssl && \
-	apk add vim
+	apk add nginx \
+			openssl \
+			vim
 
 RUN mkdir /var/run/nginx
 
