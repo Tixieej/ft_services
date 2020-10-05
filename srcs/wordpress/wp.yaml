@@ -14,10 +14,11 @@ spec:
       labels:
         app: wordpress
     spec:
+      serviceAccount: pod-service-access
       containers:
       - name: wordpress
         image: my_wp
-        imagePullPolicyt: Never
+        imagePullPolicy: Never
         ports:
         - containerPort: 5050
           name: wp
