@@ -11,44 +11,32 @@ kubectl apply -f srcs/metallb.yaml
 # set environment variables (type env to check if they are added)
 eval $(minikube -p minikube docker-env)
 
-echo "\033[92mNginx\033[0m"
+echo "\033[0;92mNginx\033[0m"
 # make nginx image
 docker build -t mynginx ./srcs/nginx/
 # deployment nginx
 kubectl apply -f srcs/nginx/nginx.yaml
 
-echo "\033[92mftps\033[0m"
+echo "\033[0;92mFTPS\033[0m"
 # make ftps image
 docker build -t my_ftps ./srcs/ftps/
 # deployment ftps
 kubectl apply -f srcs/ftps/ftps.yaml
 
-echo "\033[92mMySQL\033[0m"
+echo "\033[0;92mMySQL\033[0m"
 # make mysql image
 docker build -t my_mysql ./srcs/mysql/
 # deployment mysql
 kubectl apply -f srcs/mysql/mysql.yaml
 
-echo "\033[92mphpMyAdmin\033[0m"
+echo "\033[0;92mphpMyAdmin\033[0m"
 # make phpmyadmin image
 docker build -t my_phpmyadmin ./srcs/php/
 # deployment phpmyadmin
 kubectl apply -f srcs/php/php.yaml
 
-echo "\033[92mWordpress\033[0m"
+echo "\033[0;92mWordpress\033[0m"
 # make wordpress image
 docker build -t my_wp ./srcs/wordpress/
 # deployment wordpress
 kubectl apply -f srcs/wordpress/wp.yaml
-
-echo "\033[92mInfluxDB\033[0m"
-# make influxdb image
-docker build -t my_influxdb ./srcs/influxdb/
-# deployment influxdb
-#kubectl apply -f srcs/influxdb/influxdb.yaml
-
-echo "\033[92mGrafana\033[0m"
-# make grafana image
-#docker build -t my_grafana ./srcs/grafana/
-# deployment grafana
-#kubectl apply -f srcs/grafana/grafana.yaml

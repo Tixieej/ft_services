@@ -14,4 +14,4 @@ wp core install --title=Wordpress --admin_user=rixt --admin_password=secret --ad
 wp user create remco rpet@student.codam.nl --user_pass=kaaskip --url=${URL}:5050
 
 
-wp user create remco rpet@student.codam.nl --user_pass=kaaskip --url=${URL}:5050
+wp user create mark mpeerdem@student.codam.nl --user_pass=vlasaus --url=${URL}:5050
