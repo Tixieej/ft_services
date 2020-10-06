@@ -53,5 +53,5 @@ RUN mv wp-cli.phar /usr/local/bin/wp
 EXPOSE 5050
 
 #delete this in the end:
-CMD tail -f /dev/null
-#CMD ./startup.sh
+#CMD tail -f /dev/null
+CMD ./startup.sh
