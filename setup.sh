@@ -47,14 +47,14 @@ docker build -t my_influxdb ./srcs/influxdb/
 # deployment influxdb
 kubectl apply -f srcs/influxdb/influxdb.yaml
 
-echo "\033[92mGrafana\033[0m"
-# make grafana image
-docker build -t my_grafana ./srcs/grafana/
-# deployment grafana
-kubectl apply -f srcs/grafana/grafana.yaml
-
 echo "\033[92mTelegraf\033[0m"
 # make telegraf image
-docker build -t my_telegraf ./srcs/grafana/
+docker build -t my_telegraf ./srcs/telegraf/
 # deployment telegraf
-#kubectl apply -f srcs/telegraf/telegraf.yaml
+kubectl apply -f srcs/telegraf/telegraf.yaml
+
+echo "\033[92mGrafana\033[0m"
+# make grafana image
+#docker build -t my_grafana ./srcs/grafana/
+# deployment grafana
+#kubectl apply -f srcs/grafana/grafana.yaml
