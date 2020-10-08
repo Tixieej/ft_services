@@ -61,32 +61,3 @@ spec:
   selector:
     app: ftps
   type: LoadBalancer
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-    name: pod-service-access
-    namespace: default
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: read-service
-rules:
-- apiGroups: [""]
-  resources: ["services"]
-  verbs: ["get", "watch", "list"]
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: read-service
-  namespace: default
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: read-service
-subjects:
-- kind: ServiceAccount
-  name: pod-service-access
-  namespace: default

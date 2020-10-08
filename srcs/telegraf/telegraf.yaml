@@ -14,6 +14,7 @@ spec:
       labels:
         app: telegraf
     spec:
+      serviceAccount: pod-service-access
       containers:
       - name: telegraf
         image: my_telegraf
@@ -21,17 +22,3 @@ spec:
         ports:
         - containerPort: 8088
           name: http
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: telegraf
-spec:
-  ports:
-  - name: http
-    port: 8088
-    protocol: TCP
-    targetPort: 8088
-  selector:
-    app: telegraf
-  type: LoadBalancer

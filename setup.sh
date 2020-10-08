@@ -7,6 +7,7 @@ minikube addons enable dashboard
 # on first install only
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 kubectl apply -f srcs/metallb.yaml
+kubectl apply -f srcs/service-account.yaml
 
 # set environment variables (type env to check if they are added)
 eval $(minikube -p minikube docker-env)
@@ -55,6 +56,6 @@ kubectl apply -f srcs/telegraf/telegraf.yaml
 
 echo "\033[92mGrafana\033[0m"
 # make grafana image
-#docker build -t my_grafana ./srcs/grafana/
+docker build -t my_grafana ./srcs/grafana/
 # deployment grafana
-#kubectl apply -f srcs/grafana/grafana.yaml
+kubectl apply -f srcs/grafana/grafana.yaml
