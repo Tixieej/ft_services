@@ -15,6 +15,7 @@ RUN tar -zxvf grafana-7.2.0.linux-amd64.tar.gz
 
 # copy necessary files to container
 COPY startup.sh ./
+COPY ./grafana.db ./grafana-7.2.0/data/grafana.db
 
 # make files executable
 RUN chmod +x startup.sh

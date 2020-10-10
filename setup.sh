@@ -9,6 +9,9 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 kubectl apply -f srcs/metallb.yaml
 kubectl apply -f srcs/service-account.yaml
 
+export MKIP=$(minikube ip)
+sed "s/MKIP/$MKIP/g" srcs/telegraf/tmp.conf > srcs/telegraf/telegraf.conf
+
 # set environment variables (type env to check if they are added)
 eval $(minikube -p minikube docker-env)
 
@@ -59,3 +62,8 @@ echo "\033[92mGrafana\033[0m"
 docker build -t my_grafana ./srcs/grafana/
 # deployment grafana
 kubectl apply -f srcs/grafana/grafana.yaml
+
+# Logins:
+# phpmyadmin: mysql:mysql
+# Worpress: rixt:secret
+# Grafana: admin:admin

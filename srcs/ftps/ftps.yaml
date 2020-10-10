@@ -57,7 +57,6 @@ spec:
     port: 10005
     protocol: TCP
     targetPort: 10005
-
   selector:
     app: ftps
   type: LoadBalancer
