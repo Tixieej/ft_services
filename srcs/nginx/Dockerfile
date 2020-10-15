@@ -32,9 +32,12 @@ RUN openssl req -x509 -nodes -days 365 -subj \
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY index.html /www/index.html
 COPY sshd_config /etc/ssh/sshd_config
+COPY startup.sh ./
+
+RUN chmod +x startup.sh
 
 CMD ./startup.sh
-#["nginx", "-g", "daemon off;"]
+#CMD ["nginx", "-g", "daemon off;"]
 
 #Place this file in the same directory as your directory of content ("static-html-directory"), run docker build -t some-content-nginx ., then start your container:
 #$ docker run --name some-nginx -d some-content-nginx

@@ -29,7 +29,7 @@ RUN tar xzf /latest.tar.gz --strip-components=1 -C /www/
 
 # copy necessary files to container
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY index.html /www/index.html
+#COPY index.html /www/index.html
 COPY wp-config.php /www/
 COPY startup.sh ./
 

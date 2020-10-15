@@ -71,3 +71,4 @@ kubectl apply -f srcs/grafana/grafana.yaml
 
 # to login to SSH from outside container:
 #ssh rixt@192.168.99.220 -p 22
+#before running script, remove last line in ~/.ssh/known_hosts [on computer, not in container]
