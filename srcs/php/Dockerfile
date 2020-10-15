@@ -8,15 +8,25 @@ RUN apk update && \
 	php7-fpm \
 	php7-session \
 	php7-mysqli \
-	php7-mbstring
-
-#install phpMyAdmin
+	php7-mbstring \
+	nginx
+	
+# install phpMyAdmin
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-english.tar.gz -O - | tar -xz
 RUN mv phpMyAdmin-5.0.2-english /var/www/phpmyadmin
 RUN mkdir /var/www/phpmyadmin/tmp
 RUN chmod 755 /var/www/phpmyadmin/tmp
 
 COPY config.inc.php /var/www/phpmyadmin/config.inc.php
+
+# nginx
+RUN adduser -D -g 'www' www
+RUN mkdir /www && \
+	chown -R www:www /var/lib/nginx && \
+	chown -R www:www /www
+COPY nginx.conf /etc/nginx/nginx.conf
+#COPY index.html /www/index.html
+
 
 # startup script
 COPY phpmyadmin.sh /phpmyadmin.sh

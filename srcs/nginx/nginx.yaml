@@ -27,16 +27,22 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  annotations:
+    metallb.universe.tf/allow-shared-ip: shared
   name: nginx
 spec:
   ports:
   - name: http
     port: 80
-    protocol: TCP
     targetPort: 80
+    protocol: TCP
   - name: https
     port: 443
     targetPort: 443
+    protocol: TCP
+  - name: ssh
+    port: 22
+    targetPort: 22
     protocol: TCP
   selector:
     app: nginx
