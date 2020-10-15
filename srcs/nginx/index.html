@@ -1,10 +1,81 @@
 <html>
 	<head>
-		<title>
-			hatseflats
-		</title>
+		<title>hatseflats</title>
+		<style>
+			button {
+				border: none;
+				background: rgb(75, 40, 60);
+				font-size: 24;
+				color: white;
+				border-radius: 8px;
+				text-align: center;
+				padding: 20px 30px;
+				align: center;
+				box-shadow: 0 7px #999;
+				position: absolute;
+				right:   10;
+				bottom:   10;
+			}
+			button:active {
+ 				background-color: rgb(60, 30, 50);
+ 				box-shadow: 0 5px #666;
+ 				transform: translateY(2px);
+			}
+			body {
+				
+				background: rgb(30, 30, 30);
+				font-family: Futura, Helvetica, sans-serif;
+				color: white;
+				margin: 0;
+				padding: 0;
+			}
+			header {
+				font-size: 60;
+				background: rgb(30, 10, 15);
+				height: 25%;
+			}
+			section {
+				font-size: 30;
+				background: rgb(200, 170, 190);
+				color: rgb(30, 10, 15);
+				height: 65%;
+				display: flex;
+				flex-direction: row;
+			}
+			footer {
+				background: rgb(30, 10, 15);
+				font-family: Helvetica Neue, Arial, sans-serif;
+				height: 10%;
+			}
+			header div {
+				padding: 30px 30px;
+			}
+			section div {
+				font-family: Futura, Helvetica Neue, Helvetica, Arial, sans-serif;
+				opacity: 1;
+				background: rgb(230, 220, 230);
+				margin: auto;
+				padding: 20px;
+				width: 40%;
+				height: 60%;
+				border-radius: 8px;
+				position: relative;
+			}
+			footer div {
+				padding: 5px 20px;
+			}
+		</style>
 	</head>
 	<body>
-		Saus op de vloer
+		<header><div>ft_services</div></header>
+		<section>
+			<div> To go to my Wordpress site, add "/wordpress" at the end of the url, or click the button below.<br />
+				<button onclick="window.location.href='/wordpress'">Wordpress</button>
+			</div>
+			<div> To go to phpMyAdmin, add "/phpmyadmin" at the end of the url, or click the button below. <br />
+				<button onclick="window.location.href='/phpmyadmin'">phpMyAdmin</button>
+			</div>
+		</section>
+		<footer><div><div></footer>
 	</body>
 </html>
