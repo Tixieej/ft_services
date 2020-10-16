@@ -16,4 +16,4 @@ wp user create mark mpeerdem@student.codam.nl --user_pass=vlasaus
 
 wp user create boris bpeeters@student.codam.nl --user_pass=bigb 
 
-nginx -g "daemon off;"
+nginx
