@@ -11,12 +11,6 @@ RUN mkdir /var/run/nginx
 # Create new user
 RUN adduser -D -g 'www' www
 
-# Configure SSH
-#RUN ssh-keygen -A
-#RUN /usr/sbin/sshd
-#RUN adduser -h / -D rixt
-#RUN echo "rixt:secret" | chpasswd
-
 # Create a directory
 RUN mkdir /www && \
 	chown -R www:www /var/lib/nginx && \

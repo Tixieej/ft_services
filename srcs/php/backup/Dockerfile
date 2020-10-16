@@ -36,8 +36,8 @@ COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 5000
 
 # Startup script
-COPY phpmyadmin.sh /phpmyadmin.sh
-RUN chmod +x /phpmyadmin.sh
+COPY phpmyadmin.sh ./
+RUN chmod +x phpmyadmin.sh
 CMD ./phpmyadmin.sh
 
 #CMD tail -f /dev/null

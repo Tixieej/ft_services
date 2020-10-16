@@ -17,3 +17,13 @@ wp user create mark mpeerdem@student.codam.nl --user_pass=vlasaus
 wp user create boris bpeeters@student.codam.nl --user_pass=bigb 
 
 nginx
+
+while true; do
+	sleep 10s
+	ps | grep nginx | grep master
+	if [ $? == 1 ]; then break
+	fi
+	ps | grep php
+	if [ $? == 1]; then break
+	fi
+done
