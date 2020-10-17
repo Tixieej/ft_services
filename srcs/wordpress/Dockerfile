@@ -15,10 +15,9 @@ RUN apk update && \
 			jq \
 			curl
 
+# Nginx
 RUN mkdir /var/run/nginx
-
 RUN adduser -D -g 'www' www
-
 RUN mkdir /www && \
 	chown -R www:www /var/lib/nginx && \
 	chown -R www:www /www

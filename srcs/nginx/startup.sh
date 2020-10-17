@@ -3,6 +3,7 @@ ssh-keygen -A
 adduser -h / -D rixt
 echo "rixt:secret" | chpasswd
 nginx
+
 while true; do
 	sleep 10s
 	ps | grep nginx | grep master
