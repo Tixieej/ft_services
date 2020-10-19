@@ -21,4 +21,5 @@ $cfg['Servers'][$i]['password'] = 'mysql';
 
 $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';
-
+/*haal dit weg als er iets niet goed gaat, of als dit niks helpt bij reverse proxy:*/
+/*$cfg['PmaAbsoluteUri'] = 'https://192.168.99.220/phpmyadmin/';*/

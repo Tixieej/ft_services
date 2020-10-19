@@ -34,6 +34,6 @@ EXPOSE 5000
 # Startup script
 COPY phpmyadmin.sh ./
 RUN chmod +x phpmyadmin.sh
-CMD ./phpmyadmin.sh
+#CMD ./phpmyadmin.sh
 
-#CMD tail -f /dev/null
+CMD tail -f /dev/null
