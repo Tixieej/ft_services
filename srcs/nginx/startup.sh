@@ -9,7 +9,7 @@ while true; do
 	ps | grep nginx | grep master
 	if [ $? == 1 ]; then break
 	fi
-	ps | grep sshd
+	ps | grep sshd | grep listener
 	if [ $? == 1 ]; then break
 	fi
 done

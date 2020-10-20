@@ -19,11 +19,12 @@ wp user create boris bpeeters@student.codam.nl --user_pass=bigb
 nginx
 
 while true; do
+	echo "sup bitchez"
 	sleep 10s
 	ps | grep nginx | grep master
 	if [ $? == 1 ]; then break
 	fi
-	ps | grep php
-	if [ $? == 1]; then break
+	ps | grep php | grep fpm
+	if [ $? == 1 ]; then break
 	fi
 done
